@@ -6,21 +6,22 @@
         v-bind:todo="todo"
         v-bind:index="i"
         v-on:remove-todo="removeTodo"
+        v-bind:key="todo.id"
       />
     </ul>
   </div>
 </template>
 
 <script>
-import TodoItem from '@/components/TodoItem';
+import TodoItem from "@/components/TodoItem";
 export default {
-  props: ['todos'],
+  props: ["todos"],
   components: {
     TodoItem,
   },
   methods: {
     removeTodo(id) {
-      this.$emit('remote-todo', id);
+      this.$emit("remove-todo", id);
     },
   },
 };
